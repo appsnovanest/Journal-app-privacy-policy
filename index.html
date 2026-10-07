@@ -14,9 +14,12 @@
   <div class="wrap">
     <p class="eyebrow">My Diary &mdash; Daily Journal App</p>
     <h1>Privacy Policy</h1>
-    <!-- <p class="dates">
-      <span>Last updated: <time datetime="2026-09-12">12 September 2026</time></span>
-    </p> -->
+    <!-- One date, not two: they only differ when a change is published ahead of taking
+         effect. Keep this current - CCPA requires a privacy policy to state when it was
+         last updated. -->
+    <p class="dates">
+      <span>Last updated: <time datetime="2026-10-07">7 October 2026</time></span>
+    </p>
   </div>
 </header>
 
@@ -48,12 +51,11 @@
       <p>
         My Diary is a personal journal. The entries, moods and images you create are yours.
         We do not sell your data, we do not show advertising, and we do not run analytics or
-        tracking of any kind.
+        tracking. The only diagnostic data we collect is crash reports, so we can fix bugs.
       </p>
       <ul class="ticks">
-        <li>Your <strong>photos and drawings never leave your phone</strong> &mdash; they are stored in the app's private storage, not uploaded to any server.</li>
-        <li>Your written entries and mood logs are stored in your own private area of Google Firebase, readable only by your signed-in account.</li>
-        <li>You can export everything, or permanently delete everything, from inside the app at any time.</li>
+        <li>Your written entries, mood logs, photos and drawings are stored in your own private area of Google Firebase, readable only by your signed-in account.</li>
+        <li>You can export everything, delete everything, or delete your whole account from inside the app at any time.</li>
       </ul>
     </section>
 
@@ -101,9 +103,10 @@
       <h3>2.3 Photos and drawings</h3>
       <p>
         When you attach a photo, set a cover image, or make a drawing, the image file is copied
-        into the app's private internal storage on your device. <strong>Images are not uploaded
-        to any server.</strong> Only the local file reference is saved with your entry, which means
-        your images exist on that device only and are lost if you uninstall the app or clear its data.
+        into the app's private internal storage on your device and backed up to
+        <strong>Firebase Cloud Storage</strong>, in a folder that only your signed-in account can
+        read. This is what lets your images come back when you reinstall the app or move to a new
+        phone.
       </p>
       <p>
         The app asks for a photo only at the moment you tap to add one, through the Android photo
@@ -113,7 +116,7 @@
       <h3>2.4 Settings stored on your device</h3>
       <p>The following never leave your phone and are not sent to us or to anyone else:</p>
       <ul>
-        <li>your screen-lock PIN for the app;</li>
+        <li>your screen-lock PIN for the app, stored only as a salted one-way hash;</li>
         <li>whether you enabled unlocking with biometrics;</li>
         <li>your daily reminder time and whether reminders are on;</li>
         <li>your cached display name.</li>
@@ -122,13 +125,22 @@
         If you enable biometric unlock, authentication is performed entirely by Android's own
         biometric system. <strong>The app never receives, sees or stores your fingerprint or face data.</strong>
       </p>
+
+      <h3>2.5 Crash reports</h3>
+      <p>
+        If the app crashes, <strong>Firebase Crashlytics</strong> sends a crash report so we can find
+        and fix the problem. A report contains technical details only: the error and where in the
+        app's code it happened, your device model, Android version, app version, and a random
+        installation identifier. <strong>Crash reports never include your journal entries, mood
+        logs, images or PIN</strong>, and they are not linked to your name or email address.
+      </p>
     </section>
 
     <section id="not-collect">
       <h2>3. What we do not collect</h2>
       <ul class="crosses">
         <li>No advertising, and no advertising identifiers.</li>
-        <li>No analytics, usage tracking, behavioural profiling or crash-reporting SDKs.</li>
+        <li>No analytics, usage tracking or behavioural profiling. Crash reports (section 2.5) are the only diagnostics.</li>
         <li>No GPS or device location.</li>
         <li>No contacts, calendar, call logs, SMS or microphone access.</li>
         <li>No sale, rental or sharing of your personal information with data brokers, advertisers or any third party for their own purposes.</li>
@@ -143,7 +155,8 @@
         <li>save, display, search and sync your entries and mood logs;</li>
         <li>draw your mood chart and calendar;</li>
         <li>show a daily reminder notification, if you turn one on;</li>
-        <li>produce a text or PDF export when you ask for one.</li>
+        <li>produce a text or PDF export when you ask for one;</li>
+        <li>diagnose and fix crashes.</li>
       </ul>
       <p>
         We do not read your journal entries. We do not use your content to train machine-learning
@@ -159,9 +172,10 @@
     <section id="storage">
       <h2>5. Where your data is stored</h2>
       <p>
-        Your entries and mood logs are stored in <strong>Google Cloud Firestore</strong>, operated by
-        Google. They are filed under a path unique to your account and the app's security rules
-        permit access only to that signed-in account.
+        Your entries and mood logs are stored in <strong>Google Cloud Firestore</strong>, and your
+        images in <strong>Firebase Cloud Storage</strong>, both operated by Google. They are filed
+        under a path unique to your account and the app's security rules permit access only to
+        that signed-in account.
       </p>
       <p>
         Google operates data centres in several countries, so your data may be processed outside
@@ -169,7 +183,7 @@
         described in its own documentation, linked below.
       </p>
       <p>
-        Your images and your app settings are stored only in your device's app-private storage.
+        Your app settings are stored only in your device's app-private storage.
       </p>
     </section>
 
@@ -191,6 +205,16 @@
               <td>Cloud Firestore</td>
               <td>Stores entries and mood logs</td>
               <td>The content you write, plus your user ID</td>
+            </tr>
+            <tr>
+              <td>Firebase Cloud Storage</td>
+              <td>Backs up your photos and drawings</td>
+              <td>The images you attach, plus your user ID</td>
+            </tr>
+            <tr>
+              <td>Firebase Crashlytics</td>
+              <td>Reports app crashes</td>
+              <td>Crash details, device model, OS and app version, installation ID</td>
             </tr>
             <tr>
               <td>Google Play services / Credential Manager</td>
@@ -216,13 +240,15 @@
       <p>You are in control of removal:</p>
       <ul>
         <li><strong>Delete a single entry</strong> &mdash; open it and choose delete.</li>
-        <li><strong>Delete everything</strong> &mdash; Settings &rarr; Delete app data. This permanently removes every journal entry, every mood log and every stored image for your account. It cannot be undone.</li>
-        <li><strong>Log out</strong> &mdash; clears your name, PIN and biometric preference from the device. Your entries remain in your account and return when you sign back in.</li>
-        <li><strong>Uninstall</strong> &mdash; removes everything held on the device, including all images. Entries and mood logs remain in your account until you delete them as above.</li>
+        <li><strong>Delete everything</strong> &mdash; Settings &rarr; Delete app data. This permanently removes every journal entry, every mood log and every stored image for your account, on the device and in the cloud. It cannot be undone.</li>
+        <li><strong>Delete your account</strong> &mdash; Settings &rarr; Delete account. After you confirm your Google account, this removes all of the above <em>and</em> your sign-in record, then clears the app's data from the device. It cannot be undone.</li>
+        <li><strong>Log out</strong> &mdash; clears your name, PIN and biometric preference from the device. Your entries and images remain in your account and return when you sign back in.</li>
+        <li><strong>Uninstall</strong> &mdash; removes everything held on the device. Your entries, mood logs and images remain in your account until you delete them as above.</li>
       </ul>
       <p>
-        To have your authentication record itself erased, email us using the address below and we
-        will delete it.
+        If you no longer have the app installed, you can ask us to delete your account and all of
+        its data &mdash; see <a href="delete-account.html">how to request account deletion</a>.
+        Crash reports are kept by Firebase Crashlytics for 90 days and then deleted automatically.
       </p>
     </section>
 
@@ -236,7 +262,7 @@
       <ul>
         <li><strong>Access and portability</strong> &mdash; Settings &rarr; Export data gives you every entry as a text or PDF file.</li>
         <li><strong>Correction</strong> &mdash; edit any entry, or change your display name in Settings.</li>
-        <li><strong>Erasure</strong> &mdash; Settings &rarr; Delete app data.</li>
+        <li><strong>Erasure</strong> &mdash; Settings &rarr; Delete app data, or Settings &rarr; Delete account to remove your account as well.</li>
         <li><strong>Withdrawing consent</strong> &mdash; turn reminders off in Settings, or revoke the app's access from your Google account settings.</li>
       </ul>
       <p>
@@ -250,9 +276,9 @@
       <h2>9. Security</h2>
       <ul>
         <li>Data in transit between the app and Google's servers is encrypted with TLS.</li>
-        <li>Firestore security rules scope every read and write to your own account, so one user cannot reach another user's journal.</li>
-        <li>You can add a PIN, and optionally biometric unlock, to keep the app closed to anyone else holding your phone.</li>
-        <li>Images stay in app-private internal storage, which other apps on your device cannot read.</li>
+        <li>Firestore and Cloud Storage security rules scope every read and write to your own account, so one user cannot reach another user's journal or images.</li>
+        <li>You can add a PIN, and optionally biometric unlock, to keep the app closed to anyone else holding your phone. Repeated wrong PINs lock entry for an increasing time.</li>
+        <li>On the device, images are kept in app-private internal storage, which other apps cannot read.</li>
       </ul>
       <p class="note">
         Being straight with you: your entries are encrypted in transit and at rest on Google's
