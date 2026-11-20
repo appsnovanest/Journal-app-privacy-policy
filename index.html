@@ -5,20 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
 <title>Privacy Policy — My Diary</title>
-<meta name="description" content="Privacy policy for My Diary - Daily Journal App.">
+<meta name="description" content="Privacy policy for My Diary: Daily Journal.">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <header class="masthead">
   <div class="wrap">
-    <p class="eyebrow">My Diary &mdash; Daily Journal App</p>
+    <p class="eyebrow">My Diary: Daily Journal</p>
     <h1>Privacy Policy</h1>
     <!-- One date, not two: they only differ when a change is published ahead of taking
          effect. Keep this current - CCPA requires a privacy policy to state when it was
          last updated. -->
     <p class="dates">
-      <span>Last updated: <time datetime="2026-10-07">7 October 2026</time></span>
+      <span>Last updated: <time datetime="2026-11-20">20 November 2026</time></span>
     </p>
   </div>
 </header>
@@ -31,6 +31,8 @@
       <li><a href="#summary">Summary</a></li>
       <li><a href="#who">Who this policy covers</a></li>
       <li><a href="#collect">What we collect</a></li>
+      <li><a href="#ads">Advertising</a></li>
+      <li><a href="#pro">My Diary Pro subscription</a></li>
       <li><a href="#not-collect">What we do not collect</a></li>
       <li><a href="#use">How your information is used</a></li>
       <li><a href="#storage">Where your data is stored</a></li>
@@ -50,11 +52,14 @@
       <h2>Summary</h2>
       <p>
         My Diary is a personal journal. The entries, moods and images you create are yours.
-        We do not sell your data, we do not show advertising, and we do not run analytics or
-        tracking. The only diagnostic data we collect is crash reports, so we can fix bugs.
+        We do not sell your journal, and we never use what you write for advertising. The free
+        version of the app shows ads from Google AdMob; My Diary Pro removes them. Apart from
+        advertising, the only diagnostic data we collect is crash reports, so we can fix bugs.
       </p>
       <ul class="ticks">
         <li>Your written entries, mood logs, photos and drawings are stored in your own private area of Google Firebase, readable only by your signed-in account.</li>
+        <li>Ads never see your journal entries, moods, images or PIN.</li>
+        <li>In the UK, EEA and Switzerland we ask for your consent before ads are personalised, and you can change your choice at any time in Settings &rarr; Ad privacy choices.</li>
         <li>You can export everything, delete everything, or delete your whole account from inside the app at any time.</li>
       </ul>
     </section>
@@ -62,7 +67,7 @@
     <section id="who">
       <h2>1. Who this policy covers</h2>
       <p>
-        This policy explains how the Android application <strong>My Diary &mdash; Daily Journal App</strong>
+        This policy explains how the Android application <strong>My Diary: Daily Journal</strong>
         (package <code>com.novanest.journalapp</code>, &ldquo;the app&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;)
         handles information about you. It applies only to this app. It does not cover any other
         app, website or service.
@@ -78,17 +83,18 @@
 
       <h3>2.1 Account information</h3>
       <p>
-        Signing in is handled by <strong>Google Sign-In</strong> and <strong>Firebase Authentication</strong>.
-        When you sign in we receive from your Google account:
+        Signing in is handled by <strong>Firebase Authentication</strong>. You can sign in with
+        <strong>Google</strong> or with an <strong>email address and password</strong>. Either way we receive:
       </p>
       <ul>
         <li>your email address;</li>
-        <li>your display name;</li>
+        <li>your display name (from your Google account, or the name you enter);</li>
         <li>a Firebase user ID, which is what your journal is filed under.</li>
       </ul>
       <p>
-        We never see or receive your Google password. Your display name is also saved on your
-        device so the app can greet you without a network call.
+        We never see your Google password. If you sign in with email, your password is handled by
+        Firebase Authentication, which stores it only in hashed form; we cannot read it. Your
+        display name is also saved on your device so the app can greet you without a network call.
       </p>
 
       <h3>2.2 Content you create</h3>
@@ -102,23 +108,26 @@
 
       <h3>2.3 Photos and drawings</h3>
       <p>
-        When you attach a photo, set a cover image, or make a drawing, the image file is copied
-        into the app's private internal storage on your device and backed up to
-        <strong>Firebase Cloud Storage</strong>, in a folder that only your signed-in account can
-        read. This is what lets your images come back when you reinstall the app or move to a new
-        phone.
+        When you attach a photo, set a cover image, or make a drawing, the image is copied into the
+        app's private internal storage on your device. A compressed copy is backed up to
+        <strong>Google Cloud Firestore</strong>, under your account, where only your signed-in
+        account can read it. This is what lets your images come back when you reinstall the app or
+        move to a new phone.
       </p>
       <p>
         The app asks for a photo only at the moment you tap to add one, through the Android photo
-        picker. It has no standing access to your gallery.
+        picker. It has no standing access to your gallery. If you choose to save a drawing to your
+        gallery, the app writes only that image.
       </p>
 
       <h3>2.4 Settings stored on your device</h3>
-      <p>The following never leave your phone and are not sent to us or to anyone else:</p>
+      <p>The following stay on your phone and are not sent to us:</p>
       <ul>
         <li>your screen-lock PIN for the app, stored only as a salted one-way hash;</li>
         <li>whether you enabled unlocking with biometrics;</li>
         <li>your daily reminder time and whether reminders are on;</li>
+        <li>your theme and font choices;</li>
+        <li>whether My Diary Pro is active, and the free-plan counters (for example, how many times you changed today's mood, or whether you watched an ad to unlock an extra entry today);</li>
         <li>your cached display name.</li>
       </ul>
       <p>
@@ -136,46 +145,107 @@
       </p>
     </section>
 
+    <section id="ads">
+      <h2>3. Advertising</h2>
+      <p>
+        The free version of the app shows a banner ad, and offers optional &ldquo;rewarded&rdquo;
+        ads you can choose to watch to unlock a little extra free use. Ads are provided by
+        <strong>Google AdMob</strong>. My Diary Pro subscribers see no ads, and the ad service is
+        not started for them.
+      </p>
+      <h3>3.1 What the ad service collects</h3>
+      <p>
+        To show, measure and protect ads against fraud, Google AdMob collects information from your
+        device, which may include:
+      </p>
+      <ul>
+        <li>your device's <strong>advertising ID</strong>;</li>
+        <li>your IP address, from which an approximate (city- or region-level) location may be inferred;</li>
+        <li>device and app information, such as device model, operating system, language and app version;</li>
+        <li>interactions with ads, such as whether an ad was shown, tapped or completed.</li>
+      </ul>
+      <p>
+        <strong>We never pass your journal entries, moods, images, tags, place names, email
+        address or PIN to the ad service</strong>, and ads are not chosen based on what you write.
+      </p>
+      <h3>3.2 Consent and your choices</h3>
+      <ul>
+        <li><strong>UK, EEA and Switzerland</strong> &mdash; before any ad is requested, the app shows Google's consent message, where you can accept, reject or customise personalised advertising. If you do not consent to personalised ads, you may still see non-personalised or limited ads. You can change your choice at any time in <strong>Settings &rarr; Ad privacy choices</strong>.</li>
+        <li><strong>Everywhere</strong> &mdash; you can reset or delete your advertising ID, or opt out of personalised ads, in your phone's settings (on most devices: Settings &rarr; Privacy &rarr; Ads, or Settings &rarr; Google &rarr; Ads).</li>
+        <li><strong>Remove ads entirely</strong> by subscribing to My Diary Pro.</li>
+      </ul>
+      <p>
+        How Google uses information from apps that show its ads is explained at
+        <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">How Google uses information from sites or apps that use our services</a>.
+      </p>
+      <p>
+        <strong>US residents:</strong> showing personalised ads using your advertising ID may count
+        as &ldquo;sharing&rdquo; or &ldquo;targeted advertising&rdquo; under some US state privacy
+        laws. You can opt out by deleting your advertising ID or turning off ad personalisation in
+        your phone's settings as described above, or by contacting us.
+      </p>
+    </section>
+
+    <section id="pro">
+      <h2>4. My Diary Pro subscription</h2>
+      <p>
+        My Diary Pro is an optional subscription sold through <strong>Google Play</strong>. Payment
+        is handled entirely by Google Play Billing. <strong>We never receive your card or other
+        payment details.</strong>
+      </p>
+      <p>
+        When you subscribe or restore a purchase, Google Play tells the app which subscription you
+        own and whether it is active, together with a purchase token. The app uses this only to
+        unlock Pro features and remove ads, and stores the result on your device. You manage or
+        cancel the subscription in the Google Play Store, and Google's handling of your purchase is
+        governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.
+      </p>
+    </section>
+
     <section id="not-collect">
-      <h2>3. What we do not collect</h2>
+      <h2>5. What we do not collect</h2>
       <ul class="crosses">
-        <li>No advertising, and no advertising identifiers.</li>
-        <li>No analytics, usage tracking or behavioural profiling. Crash reports (section 2.5) are the only diagnostics.</li>
-        <li>No GPS or device location.</li>
+        <li>No use of your journal content for advertising, profiling or marketing.</li>
+        <li>No analytics or usage tracking of our own. Crash reports (section 2.5) are our only diagnostics; advertising data is described in section 3.</li>
+        <li>No GPS or precise device location.</li>
         <li>No contacts, calendar, call logs, SMS or microphone access.</li>
-        <li>No sale, rental or sharing of your personal information with data brokers, advertisers or any third party for their own purposes.</li>
+        <li>No payment card details.</li>
+        <li>No sale or rental of your personal information to data brokers.</li>
       </ul>
     </section>
 
     <section id="use">
-      <h2>4. How your information is used</h2>
-      <p>Your information is used only to make the app work for you, specifically to:</p>
+      <h2>6. How your information is used</h2>
+      <p>Your information is used only to:</p>
       <ul>
         <li>sign you in and keep your journal separate from every other user's;</li>
-        <li>save, display, search and sync your entries and mood logs;</li>
+        <li>save, display, search and sync your entries, mood logs and images;</li>
         <li>draw your mood chart and calendar;</li>
         <li>show a daily reminder notification, if you turn one on;</li>
         <li>produce a text or PDF export when you ask for one;</li>
+        <li>provide My Diary Pro and apply the free-plan limits;</li>
+        <li>show ads in the free version (section 3);</li>
         <li>diagnose and fix crashes.</li>
       </ul>
       <p>
         We do not read your journal entries. We do not use your content to train machine-learning
-        models. We do not use it for marketing.
+        models. We do not use it for marketing or advertising.
       </p>
       <p>
-        If you are in the UK or EEA: our lawful basis for processing is performance of a contract
-        with you (providing the app you asked for), and your consent where you have given it
-        &mdash; for example by enabling reminders. You can withdraw consent at any time in Settings.
+        If you are in the UK or EEA, our lawful bases for processing are: performance of a contract
+        with you (providing the app and any subscription you bought); your consent for personalised
+        advertising and for optional features such as reminders; and our legitimate interest in
+        showing non-personalised ads to fund the free version, preventing ad fraud, and fixing
+        crashes. You can withdraw consent at any time in Settings.
       </p>
     </section>
 
     <section id="storage">
-      <h2>5. Where your data is stored</h2>
+      <h2>7. Where your data is stored</h2>
       <p>
-        Your entries and mood logs are stored in <strong>Google Cloud Firestore</strong>, and your
-        images in <strong>Firebase Cloud Storage</strong>, both operated by Google. They are filed
-        under a path unique to your account and the app's security rules permit access only to
-        that signed-in account.
+        Your entries, mood logs and backed-up images are stored in <strong>Google Cloud
+        Firestore</strong>, operated by Google. They are filed under a path unique to your account,
+        and the app's security rules permit access only to that signed-in account.
       </p>
       <p>
         Google operates data centres in several countries, so your data may be processed outside
@@ -188,7 +258,7 @@
     </section>
 
     <section id="third-parties">
-      <h2>6. Third-party services</h2>
+      <h2>8. Third-party services</h2>
       <p>The app uses these Google services, and no others:</p>
       <div class="table-scroll">
         <table>
@@ -198,23 +268,33 @@
           <tbody>
             <tr>
               <td>Firebase Authentication</td>
-              <td>Signs you in</td>
-              <td>Email address, display name, user ID</td>
+              <td>Signs you in with Google or email</td>
+              <td>Email address, display name, user ID, hashed password (email sign-in only)</td>
             </tr>
             <tr>
               <td>Cloud Firestore</td>
-              <td>Stores entries and mood logs</td>
-              <td>The content you write, plus your user ID</td>
-            </tr>
-            <tr>
-              <td>Firebase Cloud Storage</td>
-              <td>Backs up your photos and drawings</td>
-              <td>The images you attach, plus your user ID</td>
+              <td>Stores entries, mood logs and image backups</td>
+              <td>The content you create, plus your user ID</td>
             </tr>
             <tr>
               <td>Firebase Crashlytics</td>
               <td>Reports app crashes</td>
               <td>Crash details, device model, OS and app version, installation ID</td>
+            </tr>
+            <tr>
+              <td>Google AdMob</td>
+              <td>Shows ads in the free version</td>
+              <td>Advertising ID, IP address, device and app information, ad interactions</td>
+            </tr>
+            <tr>
+              <td>Google User Messaging Platform</td>
+              <td>Asks for and records your ad consent</td>
+              <td>Your consent choices, device information</td>
+            </tr>
+            <tr>
+              <td>Google Play Billing</td>
+              <td>Sells and verifies the Pro subscription</td>
+              <td>Purchase status and token; payment is handled by Google</td>
             </tr>
             <tr>
               <td>Google Play services / Credential Manager</td>
@@ -227,21 +307,22 @@
       <p>
         As part of delivering these services, Google may process technical information such as your
         IP address and device identifiers. That processing is governed by
-        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>
-        and the <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Privacy and Security</a> documentation.
+        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>,
+        the <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Privacy and Security</a> documentation,
+        and <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">How Google uses information for advertising</a>.
       </p>
     </section>
 
     <section id="retention">
-      <h2>7. Retention and deletion</h2>
+      <h2>9. Retention and deletion</h2>
       <p>
-        Your entries and mood logs are kept until you delete them. There is no automatic expiry.
+        Your entries, mood logs and images are kept until you delete them. There is no automatic expiry.
       </p>
       <p>You are in control of removal:</p>
       <ul>
         <li><strong>Delete a single entry</strong> &mdash; open it and choose delete.</li>
         <li><strong>Delete everything</strong> &mdash; Settings &rarr; Delete app data. This permanently removes every journal entry, every mood log and every stored image for your account, on the device and in the cloud. It cannot be undone.</li>
-        <li><strong>Delete your account</strong> &mdash; Settings &rarr; Delete account. After you confirm your Google account, this removes all of the above <em>and</em> your sign-in record, then clears the app's data from the device. It cannot be undone.</li>
+        <li><strong>Delete your account</strong> &mdash; Settings &rarr; Delete account. After you confirm with your Google account or your email password, this removes all of the above <em>and</em> your sign-in record, then clears the app's data from the device. It cannot be undone.</li>
         <li><strong>Log out</strong> &mdash; clears your name, PIN and biometric preference from the device. Your entries and images remain in your account and return when you sign back in.</li>
         <li><strong>Uninstall</strong> &mdash; removes everything held on the device. Your entries, mood logs and images remain in your account until you delete them as above.</li>
       </ul>
@@ -249,11 +330,13 @@
         If you no longer have the app installed, you can ask us to delete your account and all of
         its data &mdash; see <a href="delete-account.html">how to request account deletion</a>.
         Crash reports are kept by Firebase Crashlytics for 90 days and then deleted automatically.
+        Advertising data is retained by Google according to its own policies. Deleting your account
+        does not cancel a Pro subscription; cancel it in the Google Play Store.
       </p>
     </section>
 
     <section id="rights">
-      <h2>8. Your rights and choices</h2>
+      <h2>10. Your rights and choices</h2>
       <p>
         Depending on where you live, you may have rights to access, correct, export, restrict or
         erase your personal information, and to object to its processing. The app is built so you
@@ -263,7 +346,8 @@
         <li><strong>Access and portability</strong> &mdash; Settings &rarr; Export data gives you every entry as a text or PDF file.</li>
         <li><strong>Correction</strong> &mdash; edit any entry, or change your display name in Settings.</li>
         <li><strong>Erasure</strong> &mdash; Settings &rarr; Delete app data, or Settings &rarr; Delete account to remove your account as well.</li>
-        <li><strong>Withdrawing consent</strong> &mdash; turn reminders off in Settings, or revoke the app's access from your Google account settings.</li>
+        <li><strong>Advertising</strong> &mdash; Settings &rarr; Ad privacy choices (UK, EEA and Switzerland), your phone's ad settings, or a Pro subscription to remove ads.</li>
+        <li><strong>Withdrawing consent</strong> &mdash; turn reminders off in Settings, change your ad choices as above, or revoke the app's access from your Google account settings.</li>
       </ul>
       <p>
         For anything you cannot do in the app, contact us and we will respond within 30 days. If
@@ -273,11 +357,12 @@
     </section>
 
     <section id="security">
-      <h2>9. Security</h2>
+      <h2>11. Security</h2>
       <ul>
         <li>Data in transit between the app and Google's servers is encrypted with TLS.</li>
-        <li>Firestore and Cloud Storage security rules scope every read and write to your own account, so one user cannot reach another user's journal or images.</li>
+        <li>Firestore security rules scope every read and write to your own account, so one user cannot reach another user's journal or images.</li>
         <li>You can add a PIN, and optionally biometric unlock, to keep the app closed to anyone else holding your phone. Repeated wrong PINs lock entry for an increasing time.</li>
+        <li>The app blocks screenshots and hides its content in the recent-apps screen.</li>
         <li>On the device, images are kept in app-private internal storage, which other apps cannot read.</li>
       </ul>
       <p class="note">
@@ -289,7 +374,7 @@
     </section>
 
     <section id="children">
-      <h2>10. Children</h2>
+      <h2>12. Children</h2>
       <p>
         The app is not directed at children under 13, and we do not knowingly collect personal
         information from them. If you believe a child has provided us with personal information,
@@ -298,7 +383,7 @@
     </section>
 
     <section id="changes">
-      <h2>11. Changes to this policy</h2>
+      <h2>13. Changes to this policy</h2>
       <p>
         We may update this policy as the app changes. The &ldquo;Last updated&rdquo; date at the top
         always reflects the current version. Material changes will be announced in the app or on
@@ -308,7 +393,7 @@
     </section>
 
     <section id="contact">
-      <h2>12. Contact</h2>
+      <h2>14. Contact</h2>
       <p>Questions about this policy, or about your data:</p>
       <p class="contact-block">
         <a href="mailto:appsnovanest@gmail.com">appsnovanest@gmail.com</a>
@@ -317,7 +402,7 @@
     </section>
 
     <footer class="foot">
-      <p>My Diary &mdash; Daily Journal App &middot; <code>com.novanest.journalapp</code></p>
+      <p>My Diary: Daily Journal &middot; <code>com.novanest.journalapp</code></p>
     </footer>
 
   </main>
